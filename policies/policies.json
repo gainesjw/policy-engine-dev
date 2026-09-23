@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "version": "sample-2026-09-21.1",
+  "workspaces": [
+    { "workspaceId": "11111111-1111-1111-1111-111111111111", "repository": "analytics-dev", "environment": "dev" },
+    { "workspaceId": "22222222-2222-2222-2222-222222222222", "repository": "analytics-dev", "environment": "test" },
+    { "workspaceId": "33333333-3333-3333-3333-333333333333", "repository": "analytics-dev", "environment": "prod" },
+    { "workspaceId": "44444444-4444-4444-4444-444444444444", "repository": "data-engineering-dev", "environment": "dev" },
+    { "workspaceId": "55555555-5555-5555-5555-555555555555", "repository": "data-engineering-dev", "environment": "test" },
+    { "workspaceId": "66666666-6666-6666-6666-666666666666", "repository": "data-engineering-dev", "environment": "prod" }
+  ],
+  "environments": {
+    "dev": {
+      "allowedItemTypes": ["Lakehouse", "Notebook", "SemanticModel", "Report"],
+      "allowedClassifications": ["public", "internal", "confidential"],
+      "allowedOwners": ["analytics-dev", "data-engineering-dev"],
+      "requireExplicitItemApproval": false,
+      "approvedItemIds": []
+    },
+    "test": {
+      "allowedItemTypes": ["Lakehouse", "Notebook", "SemanticModel", "Report"],
+      "allowedClassifications": ["public", "internal"],
+      "allowedOwners": ["analytics-dev", "data-engineering-dev"],
+      "requireExplicitItemApproval": false,
+      "approvedItemIds": []
+    },
+    "prod": {
+      "allowedItemTypes": ["Lakehouse", "Notebook", "SemanticModel", "Report"],
+      "allowedClassifications": ["public", "internal"],
+      "allowedOwners": ["analytics-dev", "data-engineering-dev"],
+      "requireExplicitItemApproval": true,
+      "approvedItemIds": []
+    }
+  },
+  "externalDependencies": [
+    { "consumerRepository": "analytics-dev", "alias": "engineering-lakehouse", "environment": "dev", "workspaceId": "44444444-4444-4444-4444-444444444444", "repository": "data-engineering-dev", "type": "Lakehouse", "itemName": "lakehouse" },
+    { "consumerRepository": "analytics-dev", "alias": "engineering-lakehouse", "environment": "test", "workspaceId": "55555555-5555-5555-5555-555555555555", "repository": "data-engineering-dev", "type": "Lakehouse", "itemName": "lakehouse" }
+  ]
+}

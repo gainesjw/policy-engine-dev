@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../src/Fabric.Policy.Core/Fabric.Policy.Core.csproj" /></ItemGroup>
+</Project>

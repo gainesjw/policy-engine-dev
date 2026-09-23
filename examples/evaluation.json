@@ -1,0 +1,28 @@
+{
+  "workspaceId": "11111111-1111-1111-1111-111111111111",
+  "manifest": {
+    "schemaVersion": 1,
+    "repository": "analytics-dev",
+    "items": [
+      { "logicalId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", "type": "SemanticModel", "name": "Sales model", "governance": { "owner": "analytics-dev", "classification": "internal" } },
+      { "logicalId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", "type": "Report", "name": "Sales report", "governance": { "owner": "analytics-dev", "classification": "internal" } }
+    ],
+    "externalDependencies": {
+      "engineering-lakehouse": {
+        "repository": "data-engineering-dev", "owner": "data-engineering-dev", "type": "Lakehouse", "itemName": "lakehouse",
+        "environments": {
+          "dev": { "workspaceId": "44444444-4444-4444-4444-444444444444" },
+          "test": { "workspaceId": "55555555-5555-5555-5555-555555555555" },
+          "prod": { "workspaceId": "66666666-6666-6666-6666-666666666666" }
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "schemaVersion": 1,
+    "edges": [
+      { "item": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", "dependency": "external:engineering-lakehouse" },
+      { "item": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", "dependency": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" }
+    ]
+  }
+}
